@@ -29,8 +29,7 @@ $(function () {
                 d;
 
             stopName = data.match(/<tr class="rowStopName"><th colspan="3" title="([^"]*)">([^<]*)</)[2];
-
-            data = data.replace('  <tr class="rowStopName"><th colspan="3" title="oxfadjda">Cumnor Hill Bottom</th><tr>  <tr class="textHeader"><th colspan="3">text 69323532 to 84637 for live times</th><tr>  <tr class="rowHeaders"><th>service</th><th>destination</th><th>time</th><tr>  ', '');
+            data = data.replace(/  <tr class="rowStopName"><th colspan="3" title="[^"]*">[^<]*<\/th><tr>  <tr class="textHeader"><th colspan="3">text \d+ to 84637 for live times<\/th><tr>  <tr class="rowHeaders"><th>service<\/th><th>destination<\/th><th>time<\/th><tr>  /, '');
             htmlResponse = $(data)[0];
 
             $('.rowServiceDeparture', htmlResponse).each(function () {
